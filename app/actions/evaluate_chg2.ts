@@ -102,15 +102,12 @@ function parseAIResponse(content: string | null): {
     }
   }
 
-  // 理解度を抽出
   const understandingMatch = content.match(/理解度[:：]\s*(.+?)(?:\n|AIコメント|$)/i)
   const understanding = understandingMatch ? understandingMatch[1].trim() : null
 
-  // AIコメントを抽出
   const commentMatch = content.match(/AIコメント[:：]\s*([\s\S]+?)(?:\n次の課題|$)/i)
   const ai_comment = commentMatch ? commentMatch[1].trim() : null
 
-  // 次の課題を抽出
   const taskMatch = content.match(/次の課題[:：]\s*([\s\S]+)$/i)
   const next_task = taskMatch ? taskMatch[1].trim() : null
 
@@ -170,19 +167,19 @@ export async function evaluateAnswer(data: {
   }
 
   const prompt = `
-  ${historyContext}${lastLearningContext}
-  【今回の学習内容】
-  【授業科目】
-  ${data.unit}
+${historyContext}${lastLearningContext}
+【今回の学習内容】
+【授業科目】
+${data.unit}
 
-  【問題】
-  ${data.question}
+【問題】
+${data.question}
 
-  【生徒の解答】
-  ${data.answer}
+【生徒の解答】
+${data.answer}
 
-  ${lastLearning ? "前回の学習内容との関連性や進捗を考慮して、継続的な成長をサポートする評価をしてください。" : ""}
-  `
+${lastLearning ? "前回の学習内容との関連性や進捗を考慮して、継続的な成長をサポートする評価をしてください。" : ""}
+`
 
   // AI評価取得
   const response = await ai.models.generateContent({
