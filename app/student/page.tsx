@@ -118,7 +118,7 @@ export default function StudentPage() {
             <input
               value={unit}
               onChange={(e) => setUnit(e.target.value)}
-              className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
             />
           </div>
 
@@ -130,7 +130,7 @@ export default function StudentPage() {
               value={question}
               onChange={(e) => setQuestion(e.target.value)}
               rows={4}
-              className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
             />
           </div>
 
@@ -142,7 +142,7 @@ export default function StudentPage() {
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
               rows={4}
-              className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
             />
           </div>
 
